@@ -1,13 +1,15 @@
 package app.models;
 
+import java.util.HashMap;
+
 public class Pelicula {
     
     private int idPelicula, anno;
     private Director director;
-    private Actor[] reparto;
+    private HashMap<Integer, Actor> reparto;
     private String nombreOriginal, nombreEspanol, sinopsis;
 
-    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, int anno) {
+    public Pelicula(int idPelicula, Director director, HashMap<Integer, Actor> reparto, String nombreOriginal, int anno) {
         this.idPelicula = idPelicula;
         this.director = director;
         this.reparto = reparto;
@@ -16,7 +18,7 @@ public class Pelicula {
         this.nombreEspanol = nombreOriginal;
     }
 
-    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol, int anno) {
+    public Pelicula(int idPelicula, Director director, HashMap<Integer, Actor> reparto, String nombreOriginal, String nombreEspanol, int anno) {
         this.idPelicula = idPelicula;
         this.director = director;
         this.reparto = reparto;
@@ -25,7 +27,7 @@ public class Pelicula {
         this.nombreEspanol = nombreEspanol;
     }
 
-    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol,
+    public Pelicula(int idPelicula, Director director, HashMap<Integer, Actor> reparto, String nombreOriginal, String nombreEspanol,
                     int anno, String sinopsis) {
         this.idPelicula = idPelicula;
         this.director = director;
@@ -60,11 +62,11 @@ public class Pelicula {
         this.director = director;
     }
 
-    public Actor[] getReparto() {
+    public HashMap<Integer, Actor> getReparto() {
         return reparto;
     }
 
-    public void setReparto(Actor[] reparto) {
+    public void setReparto(HashMap<Integer, Actor> reparto) {
         this.reparto = reparto;
     }
 
