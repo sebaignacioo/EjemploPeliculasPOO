@@ -17,12 +17,12 @@ public class Director {
         this.apodo = apodo;
     }
 
-    public int getIdActor() {
+    public int getIdDirector() {
         return idDirector;
     }
 
-    public void setIdActor(int idActor) {
-        this.idDirector = idActor;
+    public void setIdDirector(int idDirector) {
+        this.idDirector = idDirector;
     }
 
     public String getNombre() {
