@@ -5,8 +5,8 @@ public class Director {
     private int idDirector;
     private String nombre, apodo;
 
-    public Director(int idActor, String nombre) {
-        this.idDirector = idActor;
+    public Director(int idDirector, String nombre) {
+        this.idDirector = idDirector;
         this.nombre = nombre;
         this.apodo = nombre;
     }

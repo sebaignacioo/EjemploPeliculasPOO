@@ -2,23 +2,35 @@ package app.models;
 
 public class Pelicula {
     
-    private int idPelicula;
+    private int idPelicula, anno;
     private Director director;
     private Actor[] reparto;
     private String nombreOriginal, nombreEspanol, sinopsis;
 
-    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol) {
+    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, int anno) {
         this.idPelicula = idPelicula;
         this.director = director;
         this.reparto = reparto;
+        this.anno = anno;
+        this.nombreOriginal = nombreOriginal;
+        this.nombreEspanol = nombreOriginal;
+    }
+
+    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol, int anno) {
+        this.idPelicula = idPelicula;
+        this.director = director;
+        this.reparto = reparto;
+        this.anno = anno;
         this.nombreOriginal = nombreOriginal;
         this.nombreEspanol = nombreEspanol;
     }
 
-    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol, String sinopsis) {
+    public Pelicula(int idPelicula, Director director, Actor[] reparto, String nombreOriginal, String nombreEspanol,
+                    int anno, String sinopsis) {
         this.idPelicula = idPelicula;
         this.director = director;
         this.reparto = reparto;
+        this.anno = anno;
         this.nombreOriginal = nombreOriginal;
         this.nombreEspanol = nombreEspanol;
         this.sinopsis = sinopsis;
@@ -30,6 +42,14 @@ public class Pelicula {
 
     public void setIdPelicula(int idPelicula) {
         this.idPelicula = idPelicula;
+    }
+
+    public int getAnno() {
+        return anno;
+    }
+
+    public void setAnno(int anno) {
+        this.anno = anno;
     }
 
     public Director getDirector() {
