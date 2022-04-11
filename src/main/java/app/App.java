@@ -1,18 +1,23 @@
 package app;
 
-import app.data.datafile.PeliculaDF;
+import app.data.database.ConexionBD;
+import app.data.database.PeliculaBD;
 import app.models.Actor;
 import app.models.Pelicula;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
-        PeliculaDF peliculaDF = new PeliculaDF();
-        ArrayList<Pelicula> peliculas = peliculaDF.getPeliculas();
+    public static void main(String[] args) throws IOException, SQLException {
+
+        ConexionBD conexion = new ConexionBD("localhost", "proyecto_peliculas", "root", "");
+
+        PeliculaBD peliculaBD = new PeliculaBD(conexion);
+        ArrayList<Pelicula> peliculas = peliculaBD.getPeliculas();
 
         for (Pelicula pel: peliculas) {
             System.out.println(String.format("***** %s *****", pel.getNombreOriginal()));
