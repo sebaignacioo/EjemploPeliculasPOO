@@ -17,6 +17,11 @@ public class Actor {
         this.apodo = apodo;
     }
 
+    public Actor(String nombre, String apodo) {
+        this.nombre = nombre;
+        this.apodo = apodo;
+    }
+
     public int getIdActor() {
         return idActor;
     }

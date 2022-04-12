@@ -51,13 +51,19 @@ public class ActorBD {
         return todosActores.get(idActor);
     }
 
+    private int getIDUltimoActor() throws SQLException {
+        ResultSet res = this.conexionBD.executeSQL("SELECT * from Actor ORDER BY id DESC LIMIT 1");
+        res.next();
+        return res.getInt("id");
+    }
+
     public boolean insertActor(Actor actor) {
-        String sql = "INSERT INTO Actor (id, nombre, apodo) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Actor (nombre, apodo) VALUES (?, ?)";
         try {
             PreparedStatement statement = this.conexionBD.getConexion().prepareStatement(sql);
-            statement.setInt(1, actor.getIdActor());
-            statement.setString(2, actor.getNombre());
-            statement.setString(3, actor.getApodo());
+            statement.setString(1, actor.getNombre());
+            statement.setString(2, actor.getApodo());
+            actor.setIdActor(getIDUltimoActor());
             if (this.conexionBD.executeUpdate(statement) > 0) return true;
         } catch (SQLException e) {
             e.printStackTrace();

@@ -45,16 +45,22 @@ public class PeliculaBD {
         return null;
     }
 
+    private int getIDUltimaPelicula() throws SQLException {
+        ResultSet res = this.conexionBD.executeSQL("SELECT * from Pelicula ORDER BY id DESC LIMIT 1");
+        res.next();
+        return res.getInt("id");
+    }
+
     public boolean insertPelicula(Pelicula pelicula) {
-        String sql = "INSERT INTO Pelicula (id, id_director, titulo_original, titulo_espanol, anno) VALUES (?, ?, ?, " +
+        String sql = "INSERT INTO Pelicula (id_director, titulo_original, titulo_espanol, anno) VALUES (?, ?, " +
                 "?, ?)";
         try {
             PreparedStatement statement = this.conexionBD.getConexion().prepareStatement(sql);
-            statement.setInt(1, pelicula.getIdPelicula());
-            statement.setInt(2, pelicula.getDirector().getIdDirector());
-            statement.setString(3, pelicula.getNombreOriginal());
-            statement.setString(4, pelicula.getNombreEspanol());
-            statement.setInt(5, pelicula.getAnno());
+            statement.setInt(1, pelicula.getDirector().getIdDirector());
+            statement.setString(2, pelicula.getNombreOriginal());
+            statement.setString(3, pelicula.getNombreEspanol());
+            statement.setInt(4, pelicula.getAnno());
+            pelicula.setIdPelicula(getIDUltimaPelicula());
             if (this.conexionBD.executeUpdate(statement) > 0) return true;
         } catch (SQLException e) {
             e.printStackTrace();
