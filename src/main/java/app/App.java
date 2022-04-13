@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) throws IOException, SQLException {
 
-        ConexionBD conexion = new ConexionBD("localhost", "testing", "root", "ZFgpZmdfpvxXP2Rr");
+        ConexionBD conexion = new ConexionBD("localhost", "peliculaspoo", "root", "Contrasena");
 
         PeliculaBD peliculaBD = new PeliculaBD(conexion);
         ArrayList<Pelicula> peliculas = peliculaBD.getPeliculas();
