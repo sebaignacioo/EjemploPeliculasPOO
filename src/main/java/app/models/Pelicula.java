@@ -27,6 +27,14 @@ public class Pelicula {
         this.nombreEspanol = nombreEspanol;
     }
 
+    public Pelicula(Director director, HashMap<Integer, Actor> reparto, String nombreOriginal, String nombreEspanol, int anno) {
+        this.director = director;
+        this.reparto = reparto;
+        this.anno = anno;
+        this.nombreOriginal = nombreOriginal;
+        this.nombreEspanol = nombreEspanol;
+    }
+
     public Pelicula(int idPelicula, Director director, HashMap<Integer, Actor> reparto, String nombreOriginal, String nombreEspanol,
                     int anno, String sinopsis) {
         this.idPelicula = idPelicula;
